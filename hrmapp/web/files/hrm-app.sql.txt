@@ -1,0 +1,14 @@
+//创建数据库
+create database hrm_db;
+
+//使用数据库
+use hrm_db;
+
+//创建dept_inf表
+create table dept_inf(id int(11) not null auto_increment,name varchar(50) not null, remark varchar(300) default null, primary key (id)) engine = innodb auto_increment=10 default charset=utf8;
+
+//插入数据
+insert into dept_inf(id,name,remark) values(1,'技术部','技术部'),(2,'运营部','运营部'),(3,'财务部','财务部'),(5,'总公办','总公办'),(6,'市场部','市场部'),(7,'教学部','教学部');
+
+//创建job_inf表
+create table job_inf(id int(11) not null auto_increment,name varchar(50) not null,remark varchar(300) default null,primary key(id)) engine=innodb auto_increment=10 default charset=utf8;
