@@ -5,10 +5,44 @@ create database hrm_db;
 use hrm_db;
 
 //创建dept_inf表
-create table dept_inf(id int(11) not null auto_increment,name varchar(50) not null, remark varchar(300) default null, primary key (id)) engine = innodb auto_increment=10 default charset=utf8;
+create table dept_inf(id int(11) not null auto_increment,name varchar(50) not null,
+remark varchar(300) default null,primary key (id)) engine = innodb auto_increment=10 default charset=utf8;
 
 //插入数据
-insert into dept_inf(id,name,remark) values(1,'技术部','技术部'),(2,'运营部','运营部'),(3,'财务部','财务部'),(5,'总公办','总公办'),(6,'市场部','市场部'),(7,'教学部','教学部');
+insert into dept_inf(id,name,remark) values(1,'技术部','技术部'),(2,'运营部','运营部'),
+(3,'财务部','财务部'),(5,'总公办','总公办'),(6,'市场部','市场部'),(7,'教学部','教学部');
 
 //创建job_inf表
-create table job_inf(id int(11) not null auto_increment,name varchar(50) not null,remark varchar(300) default null,primary key(id)) engine=innodb auto_increment=10 default charset=utf8;
+create table job_inf(id int(11) not null auto_increment,name varchar(50) not null,
+remark varchar(300) default null,primary key(id)) engine=innodb auto_increment=10 default charset=utf8;
+
+//插入数据
+insert into job_inf(id,name,remark) values(1,'职员','职员'),(2,'Java开发工程师','Java开发工程师'),
+(3,'Java中级开发工程师','Java中级开发工程师'),(4,'Java高级开发工程师','Java高级开发工程师'),
+(5,'系统管理员','系统管理员'),(6,'架构师','架构师'),(7,'主管','主管'),(8,'经理','经理'),(9,'总经理','总经理');
+
+//创建user_inf表
+create table user_inf(id int(11) not null auto_increment,loginname varchar(20) not null,
+password varchar(16) not null,status int (11) not null default '1',
+createdate timestamp not null default current_timestamp,username varchar(20) default null,
+primary key (id))engine=innodb auto_increment=2 default charset=utf8;
+
+//插入数据
+insert into user_inf(id,loginname,password,status,createdate,username)
+values(1,'admin','123456',2,'2016-03-12 09:34:28','超级管理员');
+
+//创建notice_inf表
+create table notice_inf(id int(11) not null auto_increment,title varchar(50) not null,
+content text not null,create_date timestamp not null default current_timestamp,user_id int(11) default null,
+primary key (id),key cl_notice_user(user_id),
+constraint cl_notice_user foreign key(user_id) references user_inf(id))
+engine=innodb auto_increment=19 default charset=utf8;
+
+
+//创建document_inf表
+create table document_inf(id int(11) not null auto_increment,title varchar(50) not null,
+filename varchar(300) not null,remark varchar(300) default null,
+create_date timestamp not null default current_timestamp,user_id int (11) default null,
+primary key(id), key cl_document_user(user_id),
+constraint cl_document_user foreign key (user_id) references user_inf(id))engine=innodb
+auto_increment=7 default charset=utf8;
