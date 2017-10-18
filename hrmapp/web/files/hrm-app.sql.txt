@@ -46,3 +46,17 @@ create_date timestamp not null default current_timestamp,user_id int (11) defaul
 primary key(id), key cl_document_user(user_id),
 constraint cl_document_user foreign key (user_id) references user_inf(id))engine=innodb
 auto_increment=7 default charset=utf8;
+
+//创建employee_inf表
+create table employee_inf(id int(11) not null auto_increment,dept_id int(11) not null,
+job_id int(11) noname varchar(18) not null,card_id varchar(18) not null,address varchar(50) not null,
+post_code varchar(50) default null,tel varchar(16) default null,phone varchar(11) not null,
+qq_num varchar(10) default null,email varchar(50) default null,sex int (11) not null default '1',
+party varchar(10) default null,birthday datetime default null,race varchar(100) default null,
+education varchar(10) default null,speciality varchar(20) default null,hobby varchar(100) default null,
+remark varchar(500) default null,create_date timestamp not null default current_timestamp,primary key (id),
+key cl_emp_dept(dept_id),key cl_emp_job(job_id),constraint cl_emp_dept foreign key(dept_id) references dept_inf(id),
+constraint fk_emp_job foreign key (job_id) references job_inf(id))engine=innodb auto_increment=21 default charset=utf8;
+
+//插入数据
+insert into employee_inf(id,dept_id,job_id,name,card_id,address,post_code,tel,phone,qq_num,email,sex,party,birthday,race,education,speciality,hobby,remark,create_date) values(3,1,2,'吉姆','4321988','广州天河','510000','020-77777777','13902001111','36750066','251425887@qq.com',0,'党员','1980-01-01 00:00:00','满','本科','美声','唱歌','四大天王','2016-03-14 11:35:18');
