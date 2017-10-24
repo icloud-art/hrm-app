@@ -18,11 +18,11 @@ public interface UserDao {
     User selectByLoginnameAndPassword(@Param("loginname") String loginname,
                                       @Param("password") String password);
     //根据id查询用户
-    @Select("select * from "+USERTABLE+"where id = #{id}")
+    @Select("select * from "+USERTABLE+" where id = #{id}")
     User selectById(Integer id);
 
     //根据id删除用户
-    @Delete("delete from "+USERTABLE+"where id = #{id}")
+    @Delete("delete from "+USERTABLE+" where id = #{id}")
     void deleteById(Integer id);
 
     //动态修改用户
