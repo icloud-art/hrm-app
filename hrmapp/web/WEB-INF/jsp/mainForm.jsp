@@ -20,12 +20,15 @@
     <link href="${ctx}/fkjava.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="${ctx}/css/css.css" type="text/css" rel="stylesheet" />
 </head>
-<body>
 <frameset rows="80,*" cols="*" frameborder="no" border="0" framespacing="0">
     <frame src="${ctx}/top" name="title" scrolling="no" noresize="noresize" >
     <frameset cols="220,*" frameborder="no" border="0" framespacing="0">
         <frame src="${ctx}/left" name="tree" scrolling="no" marginheight="0" marginwidth="0">
         <frame src="${ctx}/right" name="main" scrolling="yes" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize">
     </frameset>
-</frameset></body>
+</frameset>
+
+<body>
+
+</body>
 </html>

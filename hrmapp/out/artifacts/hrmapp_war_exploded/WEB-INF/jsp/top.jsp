@@ -27,8 +27,6 @@
     		parent.location = "${ctx}/logout.action";
     	})
 	})
-	
-    
     
 </script>
 </head>

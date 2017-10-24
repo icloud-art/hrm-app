@@ -16,6 +16,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
+    <link href="${ctx}/fkjava.ico" rel="shortcut icon" type="image/x-icon" />
 
     <link href="${ctx}/js/metronic/plugins/bootstrap/css/bootstrap.min.css"
           rel="stylesheet" type="text/css" />
