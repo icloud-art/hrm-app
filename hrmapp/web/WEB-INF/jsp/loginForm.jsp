@@ -7,6 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
     <title>登录</title>
@@ -137,7 +139,7 @@
             </div>
         </div>
         <div class="page-footer" style="color: #fff">
-            兼容浏览器IE8+，最佳分辨率1280*800. <br>2015 @ 疯狂软件 http://www.fkit.org
+            兼容浏览器IE8+，最佳分辨率1280*800. <br>2015 @ charles leo study springmvc+mybatis
         </div>
     </form>
 </div>
