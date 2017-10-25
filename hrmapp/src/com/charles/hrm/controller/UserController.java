@@ -76,20 +76,16 @@ public class UserController {
         return mv;
     }
 
-    @RequestMapping(value="/user/showAddUser")
-    public ModelAndView showAddUser(
-            ModelAndView mv){
-        // 设置跳转到添加页面
-        mv.setViewName("user/showAddUser");
-        // 返回
-        return mv;
-    }
-
     @RequestMapping(value = "/user/addUser")
-    public ModelAndView addUser(@ModelAttribute User user,ModelAndView mv) {
-        hrmService.addUser(user);
-        // 设置客户端跳转到查询请求
-        mv.setViewName("redirect:/user/selectUser");
+    public ModelAndView addUser(String flag, @ModelAttribute User user,ModelAndView mv) {
+        if (flag.equals("1")) {
+            // 设置跳转到添加页面
+            mv.setViewName("user/showAddUser");
+        }else {
+            hrmService.addUser(user);
+            // 设置客户端跳转到查询请求
+            mv.setViewName("redirect:/user/selectUser");
+        }
         return mv;
     }
 }

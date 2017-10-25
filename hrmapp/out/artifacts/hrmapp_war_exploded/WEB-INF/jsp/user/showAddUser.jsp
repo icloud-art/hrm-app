@@ -33,10 +33,12 @@
 			if ($.trim(username.val()) == ""){
 				msg = "姓名不能为空！";
 				username.focus();
-			}else if ($.trim(status.val()) == ""){
+			}
+			else if ($.trim(status.val()) == ""){
 				msg = "状态不能为空！";
 				status.focus();
-			}else if ($.trim(loginname.val()) == ""){
+			}
+			else if ($.trim(loginname.val()) == ""){
 				msg = "登录名不能为空！";
 				loginname.focus();
 			}else if ($.trim(password.val()) == ""){

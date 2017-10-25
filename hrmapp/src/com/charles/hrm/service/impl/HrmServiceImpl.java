@@ -68,18 +68,14 @@ public class HrmServiceImpl implements HrmService {
         userDao.save(user);
     }
 
-
-
     @Transactional(readOnly=true)
     @Override
     public List<Dept> findAllDept() {
-
         return deptDao.selectAllDept();
     }
 
     /**
      * HrmServiceImpl接口findDept方法实现
-     * @see { HrmService }
      * */
     @Transactional(readOnly=true)
     @Override
