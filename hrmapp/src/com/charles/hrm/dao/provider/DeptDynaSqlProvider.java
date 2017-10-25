@@ -19,13 +19,13 @@ public class DeptDynaSqlProvider {
                 if (params.get("dept") != null) {
                     Dept dept = (Dept)params.get("dept");
                     if (dept.getName() != null && !dept.getName().equals("")) {
-                        WHERE(" name like concat ('%',#{dept.name},'%' ");
+                        WHERE("  name like concat ('%',#{dept.name},'%') ");
                     }
                 }
             }
         }.toString();
         if (params.get("pageModel") != null) {
-            sql += " limit#{pageModel.firstLimitParam},#{pageModel.pageSize} ";
+            sql += " limit #{pageModel.firstLimitParam} , #{pageModel.pageSize} ";
         }
         return sql;
     }
@@ -55,7 +55,7 @@ public class DeptDynaSqlProvider {
                     VALUES("name","#{name}");
                 }
                 if (dept.getRemark() != null && !dept.getRemark().equals("")) {
-                    VALUES("remak","#{remak}");
+                    VALUES("remark","#{remark}");
                 }
             }
         }.toString();

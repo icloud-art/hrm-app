@@ -30,8 +30,6 @@
 				   	 $("tr[id^='submenu']").not("#"+submenuId).hide();
 				   	 /** 控制其他一级菜单的图片显示关闭  */
 				   	 $("td[id^='navbg']").not(this).removeClass().addClass("left_nav_closed");
-				   	 
-				   	 
 				})
 			})
 		</script>
@@ -43,7 +41,7 @@
 		  <tr valign="top">
 		    <td class="left_nav_bgshw" height="50">
 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/selectUser" target="main">用户查询</a></img></p>
-			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/addUser?flag=1" target="main">添加用户</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/showAddUser" target="main">添加用户</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>
@@ -93,7 +91,7 @@
 		  </tr>
 		  <tr><td height="2"></td></tr>
 		 
-		  <tr valign="top"><td height="100%" align="center"><div class="copycct"><br /><strong>技术支持：</strong><br><strong>查尔斯中国</strong><br>Http://www.chincharles.cn</div></td></tr>
+		  <tr valign="top"><td height="100%" align="center"><div class="copycct"><br /><strong>技术支持：</strong><br><strong>查尔斯中国</strong><br>http://www.chinacharles.cn</div></td></tr>
 		  <tr><td height="10"><img src="${ctx}/images/left_nav_bottom.gif" height="10"></img></td></tr>
 		  <tr><td height="10" bgcolor="#e5f0ff">&nbsp;</td></tr>
 		</table>

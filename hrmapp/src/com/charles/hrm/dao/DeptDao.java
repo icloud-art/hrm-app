@@ -19,6 +19,9 @@ public interface DeptDao {
     Integer count (Map<String,Object> params);
 
     @Select("select * from "+DEPTTABLE+" ")
+    List<Dept> selectAllDept();
+
+    @Select("select * from "+DEPTTABLE+" ")
     Dept selectById(Integer id);
 
     @Delete(" delete from "+DEPTTABLE+" where id = #{id} ")

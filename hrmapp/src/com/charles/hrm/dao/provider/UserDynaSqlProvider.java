@@ -60,7 +60,7 @@ public class UserDynaSqlProvider {
                     VALUES("status","#{status}");
                 }
                 if (user.getLoginname() != null && !user.getLoginname().equals("")) {
-                    VALUES("loginname","#loginname");
+                    VALUES("loginname","#{loginname}");
                 }
                 if (user.getPassword() != null && !user.getPassword().equals("")) {
                     VALUES("password","#{password}");

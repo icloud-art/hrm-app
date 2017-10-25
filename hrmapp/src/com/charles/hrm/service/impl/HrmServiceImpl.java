@@ -2,6 +2,7 @@ package com.charles.hrm.service.impl;
 
 import com.charles.hrm.dao.DeptDao;
 import com.charles.hrm.dao.UserDao;
+import com.charles.hrm.domain.Dept;
 import com.charles.hrm.domain.User;
 import com.charles.hrm.service.HrmService;
 import com.charles.hrm.util.tag.PageModel;
@@ -21,7 +22,8 @@ public class HrmServiceImpl implements HrmService {
 
     @Autowired
     private UserDao userDao;
-
+    @Autowired
+    private DeptDao deptDao;
 
     /*************用户服务实现**************/
     @Transactional(readOnly=true)
@@ -64,6 +66,78 @@ public class HrmServiceImpl implements HrmService {
     @Override
     public void addUser(User user) {
         userDao.save(user);
+    }
+
+
+
+    @Transactional(readOnly=true)
+    @Override
+    public List<Dept> findAllDept() {
+
+        return deptDao.selectAllDept();
+    }
+
+    /**
+     * HrmServiceImpl接口findDept方法实现
+     * @see { HrmService }
+     * */
+    @Transactional(readOnly=true)
+    @Override
+    public List<Dept> findDept(Dept dept,PageModel pageModel) {
+        /** 当前需要分页的总数据条数  */
+        Map<String,Object> params = new HashMap<>();
+        params.put("dept", dept);
+        int recordCount = deptDao.count(params);
+        pageModel.setRecordCount(recordCount);
+
+        if(recordCount > 0){
+            /** 开始分页查询数据：查询第几页的数据 */
+            params.put("pageModel", pageModel);
+        }
+
+        List<Dept> depts = deptDao.selectByPage(params);
+
+        return depts;
+    }
+
+    /**
+     * HrmServiceImpl接口removeUserById方法实现
+     * @see { HrmService }
+     * */
+    @Override
+    public void removeDeptById(Integer id) {
+        deptDao.deleteById(id);
+
+    }
+
+    /**
+     * HrmServiceImpl接口addDept方法实现
+     * @see { HrmService }
+     * */
+    @Override
+    public void addDept(Dept dept) {
+        deptDao.save(dept);
+
+    }
+
+    /**
+     * HrmServiceImpl接口findDeptById方法实现
+     * @see { HrmService }
+     * */
+    @Override
+    public Dept findDeptById(Integer id) {
+
+        return deptDao.selectById(id);
+    }
+
+    /**
+     * HrmServiceImpl接口modifyDept方法实现
+     * @see { HrmService }
+     * */
+    @Override
+    public void modifyDept(Dept dept) {
+        deptDao.update(dept);
+
     }
 }
 

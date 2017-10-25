@@ -1,5 +1,7 @@
 package com.charles.hrm.service;
 
+import com.charles.hrm.domain.Dept;
+import com.charles.hrm.domain.Employee;
 import com.charles.hrm.domain.User;
 import com.charles.hrm.util.tag.PageModel;
 
@@ -35,4 +37,38 @@ public interface HrmService {
     * 添加用户
     * */
     public void addUser(User user);
+
+
+    /*************部门**************/
+    /**
+     * 获得所有部门，分页查询
+     * */
+    List<Dept> findDept(Dept dept,PageModel pageModel);
+
+    /**
+     * 获得所有部门
+     */
+    List<Dept> findAllDept();
+
+    /**
+     * 根据id删除部门
+     */
+    public void removeDeptById(Integer id);
+
+    /**
+     * 添加部门
+     */
+    void addDept(Dept dept);
+
+    /**
+     * 根据id查询部门
+     */
+    Dept findDeptById(Integer id);
+
+    /**
+     * 修改部门
+     * *
+     */
+    void modifyDept(Dept dept);
+
 }
