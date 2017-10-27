@@ -64,7 +64,7 @@
     	 	<input type="hidden" name="flag" value="2">
     	 	<input type="hidden" name="id" value="${job.id }">
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
-		    <tr><td class="font3 fftd">
+		    <tr><td class="font3 fftd"098543
 		    	<table>
 		    		<tr>
 		    			<td class="font3 fftd">部门名称：<input type="text" name="name" id="name" size="20" value="${job.name }"/></td>

@@ -90,7 +90,7 @@ public class DeptController {
      * 处理修改部门请求
      */
     @RequestMapping(value = "/dept/updateDept")
-    public ModelAndView updateDpet(
+    public ModelAndView updateDept(
             String flag,
             @ModelAttribute Dept dept,
             ModelAndView mv) {

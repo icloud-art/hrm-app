@@ -19,7 +19,7 @@ public class DeptDynaSqlProvider {
                 if (params.get("dept") != null) {
                     Dept dept = (Dept)params.get("dept");
                     if (dept.getName() != null && !dept.getName().equals("")) {
-                        WHERE("  name like concat ('%',#{dept.name},'%') ");
+                        WHERE(" name like concat ('%',#{dept.name},'%') ");
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class DeptDynaSqlProvider {
                 if (dept.getRemark() != null) {
                     SET(" remark = #{remark}");
                 }
-                WHERE("id = #{id}");
+                WHERE(" id = #{id}");
             }
         }.toString();
     }

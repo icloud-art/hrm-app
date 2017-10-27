@@ -1,9 +1,11 @@
 package com.charles.hrm.service.impl;
 
 import com.charles.hrm.dao.DeptDao;
+import com.charles.hrm.dao.EmployeeDao;
 import com.charles.hrm.dao.JobDao;
 import com.charles.hrm.dao.UserDao;
 import com.charles.hrm.domain.Dept;
+import com.charles.hrm.domain.Employee;
 import com.charles.hrm.domain.Job;
 import com.charles.hrm.domain.User;
 import com.charles.hrm.service.HrmService;
@@ -31,6 +33,9 @@ public class HrmServiceImpl implements HrmService {
 
     @Autowired
     private JobDao jobDao;
+
+    @Autowired
+    private EmployeeDao employeeDao;
 
     /*************用户服务实现**************/
 
@@ -134,7 +139,6 @@ public class HrmServiceImpl implements HrmService {
      * */
     @Override
     public Dept findDeptById(Integer id) {
-
         return deptDao.selectById(id);
     }
 
@@ -147,6 +151,45 @@ public class HrmServiceImpl implements HrmService {
         deptDao.update(dept);
 
     }
+    /*************员工服务实现**************/
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Employee> findEmployee(Employee employee,PageModel pageModel) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("employee",employee);
+        int recordCount = employeeDao.count(params);
+        pageModel.setRecordCount(recordCount);
+        if (recordCount > 0) {
+            params.put("pageModel",pageModel);
+        }
+        List<Employee> employees = employeeDao.selectByPage(params);
+        return employees;
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public void removeEmployeeById(Integer id) {
+        employeeDao.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Employee findEmployeeById(Integer id) {
+        return employeeDao.selectById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public void addEmployee(Employee employee) {
+        employeeDao.save(employee);
+    }
+
+    @Override
+    public void modifyEmployee(Employee employee) {
+        employeeDao.update(employee);
+    }
+
 
     /*************职位服务实现**************/
     @Transactional(readOnly = true)

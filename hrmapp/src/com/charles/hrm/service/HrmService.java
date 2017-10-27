@@ -46,30 +46,30 @@ public interface HrmService {
 
     /*************员工**************/
 
-//    /*
-//    * 获取所有员工，分页
-//    * */
-//    List<Employee> findEmployee(Employee employee, PageModel pageModel);
-//
-//    /*
-//    * 根据id删除员工
-//    * */
-//    void removeEmployeeById(Integer id);
-//
-//    /*
-//    * 根据id查询员工
-//    * */
-//    Employee findEmployeeById(Integer id);
-//
-//    /*
-//    * 添加员工
-//    * */
-//    void addEmployee(Employee employee);
-//
-//    /*
-//    * 修改员工
-//    * */
-//    void modifyEmployee(Employee employee);
+    /*
+    * 获取所有员工，分页
+    * */
+    List<Employee> findEmployee(Employee employee, PageModel pageModel);
+
+    /*
+    * 根据id删除员工
+    * */
+    void removeEmployeeById(Integer id);
+
+    /*
+    * 根据id查询员工
+    * */
+    Employee findEmployeeById(Integer id);
+
+    /*
+    * 添加员工
+    * */
+    void addEmployee(Employee employee);
+
+    /*
+    * 修改员工
+    * */
+    void modifyEmployee(Employee employee);
 
 
 

@@ -21,7 +21,7 @@ public interface DeptDao {
     @Select("select * from "+DEPTTABLE+" ")
     List<Dept> selectAllDept();
 
-    @Select("select * from "+DEPTTABLE+" ")
+    @Select("select * from "+DEPTTABLE+" where id = #{id} ")
     Dept selectById(Integer id);
 
     @Delete(" delete from "+DEPTTABLE+" where id = #{id} ")
