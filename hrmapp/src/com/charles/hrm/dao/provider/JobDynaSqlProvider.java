@@ -23,7 +23,7 @@ public class JobDynaSqlProvider {
             }
         }.toString();
         if (params.get("pageModel") != null) {
-            sql += "limit #{pageModel.firstLimitParam},#{pageModel.pageSize}";
+            sql += " limit #{pageModel.firstLimitParam},#{pageModel.pageSize}";
         }
         return sql;
     }
@@ -53,7 +53,7 @@ public class JobDynaSqlProvider {
                     VALUES("name","#{name}");
                 }
                 if (job.getRemark() != null && !job.getRemark().equals("")) {
-                    VALUES("remark","{remark}");
+                    VALUES("remark","#{remark}");
                 }
             }
         }.toString();

@@ -1,11 +1,14 @@
 package com.charles.hrm.service.impl;
 
 import com.charles.hrm.dao.DeptDao;
+import com.charles.hrm.dao.JobDao;
 import com.charles.hrm.dao.UserDao;
 import com.charles.hrm.domain.Dept;
+import com.charles.hrm.domain.Job;
 import com.charles.hrm.domain.User;
 import com.charles.hrm.service.HrmService;
 import com.charles.hrm.util.tag.PageModel;
+import jdk.nashorn.internal.scripts.JO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -26,7 +29,11 @@ public class HrmServiceImpl implements HrmService {
     @Autowired
     private DeptDao deptDao;
 
+    @Autowired
+    private JobDao jobDao;
+
     /*************用户服务实现**************/
+
     @Transactional(readOnly=true)
     @Override
     public User login(String loginname, String password) {
@@ -68,6 +75,10 @@ public class HrmServiceImpl implements HrmService {
     public void addUser(User user) {
         userDao.save(user);
     }
+
+
+
+    /*************部门服务实现**************/
 
     @Transactional(readOnly=true)
     @Override
@@ -136,5 +147,52 @@ public class HrmServiceImpl implements HrmService {
         deptDao.update(dept);
 
     }
+
+    /*************职位服务实现**************/
+    @Transactional(readOnly = true)
+    @Override
+    public List<Job> findAllJob(){
+        return jobDao.selectAllJob();
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Job>findJob(Job job,PageModel pageModel) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("job",job);
+        int recordCount = jobDao.count(params);
+
+        pageModel.setRecordCount(recordCount);
+        if (recordCount > 0) {
+            params.put("pageModel",pageModel);
+        }
+        List<Job> jobs = jobDao.selectByPage(params);
+        return jobs;
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public void removeJobById(Integer id) {
+        jobDao.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public void addJob(Job job) {
+        jobDao.save(job);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Job findJobById(Integer id) {
+        return jobDao.selectById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public void modifyJob(Job job) {
+        jobDao.update(job);
+    }
+
 }
 

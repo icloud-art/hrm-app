@@ -12,7 +12,7 @@ import java.util.Map;
 import static com.charles.hrm.util.common.HrmConstants.JOBTABLE;
 
 public interface JobDao {
-    @Select("select * from "+JOBTABLE+"where ID = #{id}")
+    @Select("select * from "+JOBTABLE+" where id = #{id}")
     Job selectById(int id);
 
     @Select("select * from "+JOBTABLE+" ")
@@ -25,7 +25,7 @@ public interface JobDao {
     @SelectProvider(type = JobDynaSqlProvider.class,method = "count")
     Integer count(Map<String,Object>params);
 
-    @Delete(" delete from "+JOBTABLE+ "where id = #{id}")
+    @Delete(" delete from "+JOBTABLE+ " where id = #{id}")
     void deleteById(Integer id);
 
     @SelectProvider(type = JobDynaSqlProvider.class,method = "insertJob")
