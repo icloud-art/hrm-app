@@ -115,7 +115,7 @@
 					 <td>${user.loginname }</td>
 					  <td>${user.password }</td>
 					  <td>${user.username }</td>
-					  <td>${user.status }</td>
+					  <td>${user.role }</td>
 					  <td><f:formatDate value="${user.createDate}" 
 								type="date" dateStyle="long"/></td>
 					 <td align="center" width="40px;"><a href="${ctx}/user/updateUser?flag=1&id=${user.id}">

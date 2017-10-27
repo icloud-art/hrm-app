@@ -18,7 +18,7 @@
 	<script src="${ctx}/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script> 
 	<script src="${ctx}/js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
-	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.jss" type="text/javascript"></script>
+	<script src="${ctx}/js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
 	<link href="${ctx}/css/pager.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript">
 	
@@ -26,14 +26,14 @@
     	/** 员工表单提交 */
 		$("#userForm").submit(function(){
 			var username = $("#username");
-			var status = $("#status");
+			var role = $("#status");
 			var loginname = $("#loginname");
 			var passord = $("#passord");
 			var msg = "";
 			if ($.trim(username.val()) == ""){
 				msg = "姓名不能为空！";
 				username.focus();
-			}else if ($.trim(status.val()) == ""){
+			}else if ($.trim(role.val()) == ""){
 				msg = "状态不能为空！";
 				status.focus();
 			}else if ($.trim(loginname.val()) == ""){
@@ -77,7 +77,7 @@
 		    	<table>
 		    		<tr>
 		    			<td class="font3 fftd">姓名：<input type="text" name="username" id="username" size="20" value="${user.username }"/></td>
-		    			<td class="font3 fftd">状态：<input type="text" name="status" id="status" size="20" value="${user.status }"/></td>
+		    			<td class="font3 fftd">状态：<input type="text" name="role" id="role" size="20" value="${user.role }"/></td>
 		    		</tr>
 		    			
 		    		<tr>

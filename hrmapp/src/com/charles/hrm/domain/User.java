@@ -4,11 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
+
     private Integer id;
     private String username;
     private String loginname;
     private String password;
-    private Integer status;
+    private Integer role;
     private Date createDate;
 
     public User(){
@@ -47,12 +48,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getRole() {
+        return role;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setRole(Integer role) {
+        this.role = role;
     }
 
     public Date getCreateDate() {
@@ -66,7 +67,7 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User [id=" + id + ", username=" + username + ", loginname="
-                + loginname + ", password=" + password + ", status=" + status
+                + loginname + ", password=" + password + ", status=" + role
                 + ", createDate=" + createDate + "]";
     }
 }

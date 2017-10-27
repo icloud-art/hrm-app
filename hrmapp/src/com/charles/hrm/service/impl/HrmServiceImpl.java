@@ -22,6 +22,7 @@ public class HrmServiceImpl implements HrmService {
 
     @Autowired
     private UserDao userDao;
+
     @Autowired
     private DeptDao deptDao;
 

@@ -18,8 +18,8 @@ public class UserDynaSqlProvider {
                     if (user.getUsername() != null && !user.getUsername().equals("")){
                         WHERE(" username LIKE CONCAT ('%',#{user.username},'%') ");
                     }
-                    if (user.getStatus() != null && !user.getStatus().equals("")) {
-                        WHERE(" status LIKE CONCAT ('%',#{user.status},'%') ");
+                    if (user.getRole() != null && !user.getRole().equals("")) {
+                        WHERE(" role LIKE CONCAT ('%',#{user.role},'%') ");
                     }
                 }
             }
@@ -41,8 +41,8 @@ public class UserDynaSqlProvider {
                     if (user.getUsername() != null && !user.getUsername().equals("")){
                         WHERE(" username LIKE CONCAT ('%',#{user.username},'%') ");
                     }
-                    if (user.getStatus() != null && !user.getStatus().equals("")) {
-                        WHERE(" status LIKE CONCAT ('%',#{user.status},'%') ");
+                    if (user.getRole() != null && !user.getRole().equals("")) {
+                        WHERE(" role LIKE CONCAT ('%',#{user.role},'%') ");
                     }
                 }
             }
@@ -56,8 +56,8 @@ public class UserDynaSqlProvider {
                 if (user.getUsername() != null && !user.getUsername().equals("")) {
                     VALUES("username","#{username}");
                 }
-                if (user.getStatus() != null && !user.getStatus().equals("")) {
-                    VALUES("status","#{user.status}");
+                if (user.getRole() != null && !user.getRole().equals("")) {
+                    VALUES("role","#{role}");
                 }
                 if (user.getLoginname() != null && !user.getLoginname().equals("")) {
                     VALUES("loginname","#{loginname}");
@@ -82,8 +82,8 @@ public class UserDynaSqlProvider {
                 if (user.getPassword() != null) {
                     SET(" password = #{password} ");
                 }
-                if (user.getStatus() != null) {
-                    SET(" status = #{status} ");
+                if (user.getRole() != null) {
+                    SET(" role = #{role} ");
                 }
                 if (user.getCreateDate() != null) {
                     SET(" create_date = #{createDate} ");

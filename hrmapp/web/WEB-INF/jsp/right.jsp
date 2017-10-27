@@ -33,7 +33,7 @@
 					
 					<tr><td class="font3 fftd">用户状态：<font color="red" size="2">
 						<c:choose>
-							<c:when test="${sessionScope.user_session.status == 1}">
+							<c:when test="${sessionScope.user_session.role == 1}">
 								已审核
 							</c:when>
 							<c:otherwise>

@@ -26,7 +26,7 @@
     	/** 员工表单提交 */
 		$("#userForm").submit(function(){
 			var username = $("#username");
-			var status = $("#status");
+			var role = $("#role");
 			var loginname = $("#loginname");
 			var password = $("#password");
 			var msg = "";
@@ -34,9 +34,9 @@
 				msg = "姓名不能为空！";
 				username.focus();
 			}
-			else if ($.trim(status.val()) == ""){
+			else if ($.trim(role.val()) == ""){
 				msg = "状态不能为空！";
-				status.focus();
+                role.focus();
 			}
 			else if ($.trim(loginname.val()) == ""){
 				msg = "登录名不能为空！";
@@ -68,7 +68,7 @@
 <table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
   <tr valign="top">
     <td>
-    	 <form action="/user/addUser" id="userForm" method="post">
+    	 <form action="${ctx}/user/addUser" id="userForm" method="post">
     	 	<!-- 隐藏表单，flag表示添加标记 -->
     	 	<input type="hidden" name="flag" value="2">
 		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
@@ -76,7 +76,7 @@
 		    	<table>
 		    		<tr>
 		    			<td class="font3 fftd">姓&nbsp;名：<input type="text" name="username" id="username" size="20"/></td>
-		    			<td class="font3 fftd">状&nbsp;态：<input type="text" name="status" id="status" size="20"/></td>
+		    			<td class="font3 fftd">状&nbsp;态：<input type="text" name="role" id="role" size="20"/></td>
 		    		</tr>
 		    			
 		    		<tr>
@@ -88,8 +88,14 @@
 		    </td></tr>
 			<tr><td class="main_tdbor"></td></tr>
 			
-			<tr><td align="left" class="fftd"><input id="submit" type="submit" value="添加">&nbsp;&nbsp;<input type="reset" value="取消 "></td></tr>
+			<tr>
+				<td align="left" class="fftd">
+					<input id="submit" type="submit" value="添加">&nbsp;&nbsp;
+					<input type="reset" value="取消 ">
+				</td>
+			</tr>
 		  </table>
+
 		 </form>
 	</td>
   </tr>
