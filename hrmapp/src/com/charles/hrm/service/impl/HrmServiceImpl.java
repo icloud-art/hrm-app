@@ -1,16 +1,11 @@
 package com.charles.hrm.service.impl;
 
-import com.charles.hrm.dao.DeptDao;
-import com.charles.hrm.dao.EmployeeDao;
-import com.charles.hrm.dao.JobDao;
-import com.charles.hrm.dao.UserDao;
-import com.charles.hrm.domain.Dept;
-import com.charles.hrm.domain.Employee;
-import com.charles.hrm.domain.Job;
-import com.charles.hrm.domain.User;
+import com.charles.hrm.dao.*;
+import com.charles.hrm.domain.*;
 import com.charles.hrm.service.HrmService;
 import com.charles.hrm.util.tag.PageModel;
 import jdk.nashorn.internal.scripts.JO;
+import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -36,6 +31,12 @@ public class HrmServiceImpl implements HrmService {
 
     @Autowired
     private EmployeeDao employeeDao;
+
+    @Autowired
+    private NoticeDao noticeDao;
+
+    @Autowired
+    private DocumentDao documentDao;
 
     /*************用户服务实现**************/
 
@@ -237,5 +238,77 @@ public class HrmServiceImpl implements HrmService {
         jobDao.update(job);
     }
 
+    /*************公告服务实现**************/
+    @Transactional(readOnly = true)
+    @Override
+    public List<Notice> findNotice(Notice notice,PageModel pageModel) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("notice",notice);
+        int recordCount = noticeDao.count(params);
+        pageModel.setRecordCount(recordCount);
+
+        if (recordCount > 0) {
+            params.put("pageModel",pageModel);
+        }
+        List<Notice> notices = noticeDao.selectByPage(params);
+        return notices;
+    }
+
+    @Transactional
+    @Override
+    public Notice findNoticeById(Integer id) {
+        return noticeDao.selectById(id);
+    }
+
+    @Override
+    public void removeNoticeById(Integer id) {
+        noticeDao.deleteById(id);
+    }
+
+    @Override
+    public void addNotice(Notice notice) {
+        noticeDao.save(notice);
+    }
+
+    @Override
+    public void modifyNotice(Notice notice) {
+        noticeDao.update(notice);
+    }
+
+    /*******************文件接口实现*********************/
+    @Transactional(readOnly = true)
+    @Override
+    public List<Document> findDocument(Document document,PageModel pageModel) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("document",document);
+        int recordCount = documentDao.count(params);
+        pageModel.setRecordCount(recordCount);
+        if (recordCount > 0) {
+            params.put("pageModel",pageModel);
+        }
+        List<Document> documents = documentDao.selectByPage(params);
+        return documents;
+    }
+
+    @Override
+    public void addDocument(Document document) {
+        documentDao.save(document);
+    }
+
+    @Override
+    public void removeDocumentById(Integer id) {
+        documentDao.deleteById(id);
+    }
+
+    @Override
+    public void modifyDocument(Document document) {
+        documentDao.update(document);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Document findDocumentById(Integer id) {
+        return documentDao.selectById(id);
+    }
 }
 

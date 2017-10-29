@@ -1,9 +1,6 @@
 package com.charles.hrm.service;
 
-import com.charles.hrm.domain.Dept;
-import com.charles.hrm.domain.Employee;
-import com.charles.hrm.domain.Job;
-import com.charles.hrm.domain.User;
+import com.charles.hrm.domain.*;
 import com.charles.hrm.util.tag.PageModel;
 import jdk.nashorn.internal.scripts.JO;
 import sun.jvm.hotspot.debugger.Page;
@@ -139,10 +136,57 @@ public interface HrmService {
 
     /*************公告**************/
 
+    /*
+    * 获取所有的公告
+    * */
+    List<Notice> findNotice(Notice notice,PageModel pageModel);
 
+    /*
+    * 根据id查询Notice
+    * */
+    Notice findNoticeById(Integer id);
+
+    /*
+    * 根据id删除Notice
+    * */
+    void removeNoticeById(Integer id);
+
+    /*
+    * 更新Notice
+    * */
+    public void modifyNotice(Notice notice);
+
+    /*
+    * 添加Notice
+    * */
+    public void  addNotice(Notice notice);
 
     /*************文档**************/
 
+    /*
+    * 查找文件
+    * */
+    public List<Document> findDocument(Document document,PageModel pageModel);
+
+    /*
+    * 添加文件
+    * */
+    public void addDocument(Document document);
+
+    /*
+    * 删除文件
+    * */
+    public void removeDocumentById(Integer id);
+
+    /*
+    * 修改文件
+    * */
+    public void modifyDocument(Document document);
+
+    /*
+    * 根据id 查询文件
+    * */
+    public Document findDocumentById(Integer id);
 
 
 }
