@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import sun.jvm.hotspot.debugger.Page;
 
@@ -54,8 +55,10 @@ public class DocumentController {
             mv.setViewName("document/showAddDocument");
         }else  {
             String path = session.getServletContext().getRealPath("/upload/");
+
             String fileName = document.getFile().getOriginalFilename();
             document.getFile().transferTo(new File(path+File.separator + fileName));
+
             document.setFileName(fileName);
 
             User user = (User) session.getAttribute(HrmConstants.USER_SESSION);
